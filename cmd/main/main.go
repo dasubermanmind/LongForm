@@ -28,11 +28,12 @@ type config struct {
 // TODO: Application struct needs a few more properties
 // TODO: 1) DB 2) Session manager scs
 type application struct {
-	config        config
-	infoLog       *log.Logger
-	errorLog      *log.Logger
-	templateCache map[string]*template.Template
-	version       string
+	config           config
+	infoLog          *log.Logger
+	errorLog         *log.Logger
+	templateCache    map[string]*template.Template
+	templateMarkdown map[string]*template.FuncMap
+	version          string
 }
 
 func (app *application) serve() error {
