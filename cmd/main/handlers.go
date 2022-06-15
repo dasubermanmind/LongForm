@@ -1,7 +1,6 @@
 package main
 
 import (
-	"io/ioutil"
 	"net/http"
 )
 
@@ -44,34 +43,32 @@ type Bitcoin struct {
 // Advocacy
 func (app *application) Advocacy(w http.ResponseWriter, r *http.Request) {
 	//var btc Bitcoin
-	response, err := http.Get("") // TODO: Need to find a reliable API
-	if err != nil {
-		app.errorLog.Println("", err)
-		return
-	}
-	app.infoLog.Println(response)
-
-	//retVal = Bitcoin {
-	//	ID: response
+	//response, err := http.Get("") // TODO: Need to find a reliable API
+	//if err != nil {
+	//	app.errorLog.Println("", err)
+	//	return
 	//}
+	//app.infoLog.Println(response)
+	//
+	////retVal = Bitcoin {
+	////	ID: response
+	////}
+	//
+	//defer response.Body.Close()
+	//
+	//bcBody, err := ioutil.ReadAll(response.Body)
+	//if err != nil {
+	//	return
+	//}
+	//
+	//data := make(map[string]interface{})
+	//
+	//if err != nil {
+	//	return
+	//}
+	//data["btc"] = bcBody
 
-	defer response.Body.Close()
-
-	bcBody, err := ioutil.ReadAll(response.Body)
-	if err != nil {
-		return
-	}
-
-	data := make(map[string]interface{})
-
-	if err != nil {
-		return
-	}
-	data["btc"] = bcBody
-
-	if err := app.renderTemplate(w, r, "advocacy", &templateData{
-		Data: data,
-	}); err != nil {
+	if err := app.renderTemplate(w, r, "advocacy", &templateData{}); err != nil {
 		app.errorLog.Println(err)
 	}
 }
